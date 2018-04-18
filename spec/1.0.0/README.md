@@ -107,6 +107,27 @@ Individual: `Ahmad Nassri <ahmad@acme.com>` or Teams `Website Team <contact@acme
 > }
 > ```
 
+###### YAML Example
+
+> ```yaml
+> version: 1.0.0
+> about:
+>   id: awesome-2018
+>   name: my-awesome-app
+>   description: app that makes everything awesome!
+>
+> owners:
+>   departments: Awesome Department <awesome@acme.com>
+>   teams:
+>     - app development <app-dev@acme.com>
+>     - app qa <app-qa@acme.com>
+>
+>   humans:
+>     - Lead Developer <ahmad@acme.com>
+>     - Lead Designer <alex@acme.com>
+>
+> ```
+
 [json]: https://www.json.org/
 
 [semver]: https://semver.org
