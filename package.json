@@ -1,0 +1,37 @@
+{
+  "version": "0.0.0-development",
+  "name": "@colophon/schema",
+  "description": "Standarized project metadata to specify the components, constructs and authorship of software",
+  "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colophon/schema.git"
+  },
+  "license": "ISC",
+  "main": "index.js",
+  "keywords": [
+    "colophon",
+    "schema"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=9"
+  },
+  "files": [
+    "spec"
+  ],
+  "bugs": {
+    "url": "https://github.com/colophon/schema/issues"
+  },
+  "scripts": {
+    "test": "npm run test:tap",
+    "test:tap": "tap test --100 --coverage-report=lcov --no-browser"
+  },
+  "devDependencies": {
+    "ajv": "^6.4.0",
+    "js-yaml": "^3.11.0",
+    "tap": "^11.1.4"
+  }
+}
