@@ -71,9 +71,9 @@ name            | type     | required | default | description
 
 name            | type           | required | default | description                                                         
 --------------- | -------------- | -------- | ------- | ----------------------------------
-**departments** | `String|Array` | ✗        | `-`     | individual or array of departments                                    
-**teams**       | `String|Array` | ✗        | `-`     | individual or array of teams
-**humans**      | `String|Array` | ✗        | `-`     | individual or array of humans  
+**departments** | `String or Array` | ✗        | `-`     | individual or array of departments                                    
+**teams**       | `String or Array` | ✗        | `-`     | individual or array of teams
+**humans**      | `String or Array` | ✗        | `-`     | individual or array of humans  
 
 All owner values can either be strings or array of strings that follow the [RFC 6854](https://tools.ietf.org/html/rfc6854) `Sender:` format, e.g.
 
