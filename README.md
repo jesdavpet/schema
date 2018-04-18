@@ -2,7 +2,7 @@
 
 > Standarized project metadata to specify the components, constructs and authorship of software.
 
-Allows teams to gain a better understanding of software, systems and human mapping in an organization.
+Allows teams to gain a better understanding of software, systems and human mappings (why, what, how, who, when, where) in an organization.
 
 ## Use cases
 
