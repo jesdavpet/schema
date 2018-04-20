@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Colophon Schema",
+  "description": "JSON Schema for Colophon",
+  "definitions": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringOrArray": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/definitions/nonEmptyString"
+          }
+        }
+      ]
+    }
+  },
+  "type": "object",
+  "required": ["version", "about", "owners"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "title": "Colophon Schema Version",
+      "description": "Used to determine what Colophon schema version to validate against",
+      "type": "string",
+      "pattern":
+        "\\bv?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[\\da-z-]+(?:\\.[\\da-z-]+)*)?(?:\\+[\\da-z-]+(?:\\.[\\da-z-]+)*)?\\b"
+    },
+    "about": {
+      "title": "About",
+      "description": "defines the context of \"What\"",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "id",
+          "description": "A unique, deterministic identifier for this application",
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "title": {
+          "title": "title",
+          "description": "Unique name representing the application",
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "description": {
+          "title": "name",
+          "description": "Snippet describing the application in detail",
+          "$ref": "#/definitions/nonEmptyString"
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contact information about this application",
+      "type": "object",
+      "properties": {
+        "department": {
+          "title": "department(s)",
+          "description": "individual or array of departments",
+          "$ref": "#/definitions/stringOrArray"
+        }
+      }
+    }
+  }
+}

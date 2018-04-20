@@ -48,7 +48,7 @@ name               | type     | required | default | description
 ```json
 {
   "id": "123456",
-  "name": "semi",
+  "title": "semi",
   "description": "Extra semicolon"
 }
 ```
@@ -56,7 +56,7 @@ name               | type     | required | default | description
 name            | type     | required | default | description                                                                                                
 --------------- | -------- | -------- | ------- | -------------------------------------------------------
 **id**          | `String` | ✗        | `-`     | A unique, deterministic identifier for your application 
-**name**        | `String` | 🗸        | `-`     | Unique name representing the application                                                 
+**title**       | `String` | 🗸        | `-`     | Unique title representing the application                                                 
 **description** | `String` | ✗        | `-`     | Snippet describing the application in detail                                         
 
 ### `contact`
@@ -86,7 +86,7 @@ Individual: `Ahmad Nassri <ahmad@acme.com>` or Teams `Website Team <contact@acme
 >   "version": "1.0.0",
 >   "about": {
 >     "id": "awesome-2018",
->     "name": "my-awesome-app",
+>     "title": "my-awesome-app",
 >     "description": "app that makes everything awesome!"
 >   },
 >   "owners": {
@@ -113,7 +113,7 @@ Individual: `Ahmad Nassri <ahmad@acme.com>` or Teams `Website Team <contact@acme
 > version: 1.0.0
 > about:
 >   id: awesome-2018
->   name: my-awesome-app
+>   title: My Awesome App
 >   description: app that makes everything awesome!
 >
 > owners:
