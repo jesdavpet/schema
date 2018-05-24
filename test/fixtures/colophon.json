@@ -7,20 +7,54 @@
     "description": "app that makes everything awesome!"
   },
   "contacts": {
-    "departments": {
-      "name": "Awesome Department",
-      "email": "awesome@acme.com"
-    },
+    "departments": "Awesome Department <awesome@acme.com>",
     "teams": [
+      "app development <app-dev@acme.com>",
+      "app qa <app-qa@acme.com>",
       { "name": "app development", "email": "app-dev@acme.com" },
       { "name": "app qa", "email": "app-qa@acme.com" }
     ],
     "humans": [
+      "Lead Developer <ahmad@acme.com>",
+      "Lead Designer <alex@acme.com>",
       { "name": "Lead Developer", "email": "ahmad@acme.com" },
       { "name": "Lead Designer", "email": "alex@acme.com" }
     ]
   },
-  "schedule": {},
-  "references": {},
-  "environments": {}
+  "schedule": {
+    "launch": "2018-05-24T03:35:40.968Z",
+    "sunset": "2020-01-31T03:35:40.968Z"
+  },
+  "environments": [
+    {
+      "type": "production",
+      "title": "URL",
+      "description": "Web Application URL",
+      "uri": "https://www.acme.com"
+    },
+    {
+      "type": "test",
+      "title": "URL",
+      "description": "Web Application URL",
+      "uri": "http://test.acme.com"
+    },
+    {
+      "type": "production",
+      "title": "Database",
+      "description": "Application Database",
+      "uri": "mongodb://prod.db.acme.com:27017/acme"
+    }
+  ],
+  "references": [
+    {
+      "title": "JIRA",
+      "description": "application backlog & issues",
+      "uri": "https://acme.atlassian.net/projects/APP/issues/"
+    },
+    {
+      "title": "Wiki",
+      "description": "application technical wiki",
+      "uri": "https://github.com/acme/app/wiki"
+    }
+  ]
 }

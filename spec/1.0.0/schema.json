@@ -8,16 +8,24 @@
       "minLength": 1
     },
     "contact": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "$ref": "#/definitions/nonEmptyString"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/nonEmptyString"
+            },
+            "email": {
+              "type": "string",
+              "format": "email"
+            }
+          }
         },
-        "email": {
+        {
           "type": "string",
-          "format": "email"
+          "$ref": "#/definitions/nonEmptyString"
         }
-      }
+      ]
     },
     "contacts": {
       "oneOf": [
@@ -38,7 +46,8 @@
   "required": [
     "version",
     "about",
-    "contacts"
+    "contacts",
+    "environments"
   ],
   "properties": {
     "$schema": {
@@ -62,11 +71,11 @@
         },
         "title": {
           "title": "title",
-          "description": "Unique name representing the application",
+          "description": "Unique title representing the application",
           "$ref": "#/definitions/nonEmptyString"
         },
         "description": {
-          "title": "name",
+          "title": "description",
           "description": "Snippet describing the application in detail",
           "$ref": "#/definitions/nonEmptyString"
         }
@@ -74,22 +83,27 @@
     },
     "contacts": {
       "title": "Contacts",
-      "description": "defines the context of \"Who\" this application belongs to",
+      "description": "defines the context of \"Who\" is responsible for this application",
       "type": "object",
+      "anyOf": [
+        { "required": ["departments"] },
+        { "required": ["humans"] },
+        { "required": ["teams"] }
+      ],
       "properties": {
         "departments": {
           "title": "Departments",
-          "description": "array of departments this application belongs to",
+          "description": "department(s) this application belongs to",
           "$ref": "#/definitions/contacts"
         },
         "teams": {
-          "title": "team(s) this application belongs to",
-          "description": "individual team name or array of team names",
+          "title": "Teams",
+          "description": "team(s) this application belongs to",
           "$ref": "#/definitions/contacts"
         },
         "humans": {
-          "title": "individual(s) this application belongs to",
-          "description": "individual person name or array of person names",
+          "title": "Humans",
+          "description": "individual(s) this application belongs to",
           "$ref": "#/definitions/contacts"
         }
       }
@@ -122,29 +136,63 @@
     "environments": {
       "title": "Environments",
       "description": "defines the context of \"Where\" this application is",
-      "type": "object",
-      "patternProperties": {
-        ".*": {
-          "type": "object",
-          "title": "Environment",
-          "description": "Environment Information",
-          "properties": {
-            "title": {
-              "title": "Title",
-              "description": "Environment Title",
-              "$ref": "#/definitions/nonEmptyString"
-            },
-            "description": {
-              "title": "description",
-              "description": "Environment Description",
-              "$ref": "#/definitions/nonEmptyString"
-            },
-            "uri": {
-              "title": "Environment URI",
-              "description": "Environment URI",
-              "type": "string",
-              "format": "uri"
-            }
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "title": "Environment",
+        "description": "Environment Information",
+        "properties": {
+          "type": {
+            "title": "type",
+            "description": "Environment Type",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "title": {
+            "title": "title",
+            "description": "Environment Title",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "description": {
+            "title": "description",
+            "description": "Environment Description",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "uri": {
+            "title": "URI",
+            "description": "Environment URI",
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "references": {
+      "title": "References",
+      "description": "defines additional context about application through external sources",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Reference",
+        "description": "Reference Information",
+        "properties": {
+          "title": {
+            "title": "title",
+            "description": "Reference Title",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "description": {
+            "title": "description",
+            "description": "Reference Description",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "uri": {
+            "title": "URI",
+            "description": "Reference URI",
+            "type": "string",
+            "format": "uri"
           }
         }
       }
