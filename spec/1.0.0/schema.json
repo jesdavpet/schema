@@ -7,23 +7,39 @@
       "type": "string",
       "minLength": 1
     },
-    "stringOrArray": {
+    "contact": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "contacts": {
       "oneOf": [
         {
-          "$ref": "#/definitions/nonEmptyString"
+          "$ref": "#/definitions/contact"
         },
         {
           "type": "array",
           "uniqueItems": true,
           "items": {
-            "$ref": "#/definitions/nonEmptyString"
+            "$ref": "#/definitions/contact"
           }
         }
       ]
     }
   },
   "type": "object",
-  "required": ["version", "about", "owners"],
+  "required": [
+    "version",
+    "about",
+    "contacts"
+  ],
   "properties": {
     "$schema": {
       "type": "string"
@@ -32,12 +48,11 @@
       "title": "Colophon Schema Version",
       "description": "Used to determine what Colophon schema version to validate against",
       "type": "string",
-      "pattern":
-        "\\bv?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[\\da-z-]+(?:\\.[\\da-z-]+)*)?(?:\\+[\\da-z-]+(?:\\.[\\da-z-]+)*)?\\b"
+      "pattern": "\\bv?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[\\da-z-]+(?:\\.[\\da-z-]+)*)?(?:\\+[\\da-z-]+(?:\\.[\\da-z-]+)*)?\\b"
     },
     "about": {
       "title": "About",
-      "description": "defines the context of \"What\"",
+      "description": "defines the context of \"What\" this application is",
       "type": "object",
       "properties": {
         "id": {
@@ -57,15 +72,80 @@
         }
       }
     },
-    "contact": {
-      "title": "Contact",
-      "description": "Contact information about this application",
+    "contacts": {
+      "title": "Contacts",
+      "description": "defines the context of \"Who\" this application belongs to",
       "type": "object",
       "properties": {
-        "department": {
-          "title": "department(s)",
-          "description": "individual or array of departments",
-          "$ref": "#/definitions/stringOrArray"
+        "departments": {
+          "title": "Departments",
+          "description": "array of departments this application belongs to",
+          "$ref": "#/definitions/contacts"
+        },
+        "teams": {
+          "title": "team(s) this application belongs to",
+          "description": "individual team name or array of team names",
+          "$ref": "#/definitions/contacts"
+        },
+        "humans": {
+          "title": "individual(s) this application belongs to",
+          "description": "individual person name or array of person names",
+          "$ref": "#/definitions/contacts"
+        }
+      }
+    },
+    "schedule": {
+      "title": "Schedule",
+      "description": "defines the context of \"When\" activities around this application are planned",
+      "type": "object",
+      "properties": {
+        "patternProperties": {
+          ".*": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "launch": {
+            "title": "Launch Date",
+            "description": "Launch date for this application",
+            "type": "string",
+            "format": "date-time"
+          },
+          "sunset": {
+            "title": "Sunset Date",
+            "description": "Sunset date for this application",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "environments": {
+      "title": "Environments",
+      "description": "defines the context of \"Where\" this application is",
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "title": "Environment",
+          "description": "Environment Information",
+          "properties": {
+            "title": {
+              "title": "Title",
+              "description": "Environment Title",
+              "$ref": "#/definitions/nonEmptyString"
+            },
+            "description": {
+              "title": "description",
+              "description": "Environment Description",
+              "$ref": "#/definitions/nonEmptyString"
+            },
+            "uri": {
+              "title": "Environment URI",
+              "description": "Environment URI",
+              "type": "string",
+              "format": "uri"
+            }
+          }
         }
       }
     }

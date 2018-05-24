@@ -125,7 +125,6 @@ Individual: `Ahmad Nassri <ahmad@acme.com>` or Teams `Website Team <contact@acme
 >   humans:
 >     - Lead Developer <ahmad@acme.com>
 >     - Lead Designer <alex@acme.com>
->
 > ```
 
 [json]: https://www.json.org/
