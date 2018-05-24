@@ -1,0 +1,25 @@
+version: 1.0.0
+
+about:
+  id: awesome-2018
+  title: My Awesome App
+  description: app that makes everything awesome!
+
+contacts:
+  departments:
+    name: Awesome Department
+    email: awesome@acme.com
+
+  teams:
+    - name: app development
+      email: app-dev@acme.com
+
+    - name: app qa
+      email: app-qa@acme.com
+
+  humans:
+    - name: Lead Developer
+      email: ahmad@acme.com
+
+    - name: Lead Designer
+      email: alex@acme.com
