@@ -5,7 +5,7 @@
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/colophon/schema.git"
+    "url": "https://github.com/ahmadnassri/colophon.git"
   },
   "license": "ISC",
   "main": "index.js",
@@ -23,7 +23,7 @@
     "spec"
   ],
   "bugs": {
-    "url": "https://github.com/colophon/schema/issues"
+    "url": "https://github.com/ahmadnassri/colophon/issues"
   },
   "scripts": {
     "test": "npm run test:tap",
