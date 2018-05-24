@@ -51,6 +51,6 @@ const { schema, regex } = require('@colophon/schema')
 
 [npm-version]: https://img.shields.io/npm/v/@colophon/schema.svg?style=flat-square
 
-[travis-image]: https://img.shields.io/travis/@colophon/schema.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/ahmadnassri/colophon.svg?style=flat-square
 
-[travis-url]: https://travis-ci.org/@colophon/schema
+[travis-url]: https://travis-ci.org/ahmadnassri/colophon
