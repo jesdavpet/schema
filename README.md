@@ -6,11 +6,31 @@ Allows teams to gain a better understanding of software, systems and human mappi
 
 ## Use cases
 
-- Codify business & operational concerns that are typically undocumented 
+- A single source of truth for all non-technical data!
 - Catalogue all your software projects
-- Create reports on software health and ownership
+  - quickly scan through github repos for human readable and business driven information rather than code
+  - create reports on project health and ownership
+- Codify business & operational concerns that are typically undocumented
+  - timelines and scheduled operations around the project _(e.g. sunset date)_
+  - none technical references to the project _(e.g. kanban board, budget)_
 - Use in CI/CD tooling to anotate your artefacts
-- A single source of truth!
+- Correlation of application instances and source code:
+  - Web pages can expose a `<meta>` tag that links to the project's `id`:
+
+    ```html
+    <meta name="colophon" content="acme-app-id"/>
+    ```
+  - APIs respond with a header `Colophon` that links to the project's `id`:
+
+    ```http
+    HTTP/1.1 200 OK
+    Date: Fri, 25 May 2018 22:38:34 GMT
+    Content-Type: application/json; charset=UTF-8
+    Content-Encoding: UTF-8
+    Colophon: acme-app-api
+
+    ...
+    ```
 
 ## Example
 
@@ -19,8 +39,9 @@ This project's own [`colophon.yml`](.colophon.yml):
 ```yaml
 version: 1.0.0
 
+id: colophon-schema
+
 about:
-  id: colophon-schema
   title: Colphon Schema
   description: Standarized project metadata to specify the components, constructs and authorship of software.
 
