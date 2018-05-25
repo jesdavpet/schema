@@ -1,7 +1,8 @@
 version: 1.0.0
 
+id: awesome-app
+
 about:
-  id: awesome-2018
   title: My Awesome App
   description: app that makes everything awesome!
 

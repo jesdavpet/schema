@@ -24,6 +24,7 @@ Acceptable file name must match the following pattern:
 ```json
 {
   "version": "1.0.0",
+  "id": "my-awesome-app",
   "about": {},
   "contacts": {},
   "schedule": {},
@@ -32,14 +33,15 @@ Acceptable file name must match the following pattern:
 }
 ```
 
-name             | type     | required | default | description                                
----------------- | -------- | -------- | ------- | -------------------------------------------
-**version**      | `String` | 🗸       | `-`     | Spec version. Format must follow [semver][]
-**about**        | `Object` | 🗸       | `-`     | [About Object](#about)                     
-**contacts**     | `Object` | 🗸       | `-`     | [Contacts Object](#contacts)               
-**schedule**     | `Object` | ✗        | `-`     | [Schedule Object](#schedule)               
-**environments** | `Array`  | 🗸       | `-`     | [Environments Array](#environments)        
-**references**   | `Object` | ✗        | `-`     | [References Object](#references)           
+name             | type     | required | default | description                                            
+---------------- | -------- | -------- | ------- | -------------------------------------------------------
+**version**      | `String` | 🗸       | `-`     | Spec version. Format must follow [semver][]            
+**id**           | `String` | ✗        | `-`     | A unique, deterministic identifier for your application
+**about**        | `Object` | 🗸       | `-`     | [About Object](#about)                                 
+**contacts**     | `Object` | 🗸       | `-`     | [Contacts Object](#contacts)                           
+**schedule**     | `Object` | ✗        | `-`     | [Schedule Object](#schedule)                           
+**environments** | `Array`  | 🗸       | `-`     | [Environments Array](#environments)                    
+**references**   | `Object` | ✗        | `-`     | [References Object](#references)                       
 
 ### `about`
 
@@ -47,17 +49,15 @@ name             | type     | required | default | description
 
 ```json
 {
-  "id": "123456",
   "title": "semi",
   "description": "Extra semicolon"
 }
 ```
 
-name            | type     | required | default | description                                            
---------------- | -------- | -------- | ------- | -------------------------------------------------------
-**id**          | `String` | ✗        | `-`     | A unique, deterministic identifier for your application
-**title**       | `String` | 🗸       | `-`     | Unique title representing the application              
-**description** | `String` | ✗        | `-`     | Snippet describing the application in detail           
+name            | type     | required | default | description                                 
+--------------- | -------- | -------- | ------- | --------------------------------------------
+**title**       | `String` | 🗸       | `-`     | Unique title representing the application   
+**description** | `String` | ✗        | `-`     | Snippet describing the application in detail
 
 ### `contact`
 

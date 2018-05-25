@@ -12,6 +12,34 @@ Allows teams to gain a better understanding of software, systems and human mappi
 - Use in CI/CD tooling to anotate your artefacts
 - A single source of truth!
 
+## Example
+
+This project's own [`colophon.yml`](.colophon.yml):
+
+```yaml
+version: 1.0.0
+
+about:
+  id: colophon-schema
+  title: Colphon Schema
+  description: Standarized project metadata to specify the components, constructs and authorship of software.
+
+contacts:
+  humans: Ahmad Nassri <hi@ahmad.codes>
+
+schedule:
+  launch: 2018-05-24T05:00:00.000Z
+
+environments:
+  - type: git
+    title: Source Code
+    uri: https://github.com/ahmadnassri/colophon
+
+references:
+  - title: Documentation
+    uri: https://github.com/ahmadnassri/colophon
+```
+
 ## Specification
 
 ### Versions

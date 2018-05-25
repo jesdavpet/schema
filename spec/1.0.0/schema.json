@@ -45,6 +45,7 @@
   "type": "object",
   "required": [
     "version",
+    "id",
     "about",
     "contacts",
     "environments"
@@ -59,16 +60,16 @@
       "type": "string",
       "pattern": "\\bv?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[\\da-z-]+(?:\\.[\\da-z-]+)*)?(?:\\+[\\da-z-]+(?:\\.[\\da-z-]+)*)?\\b"
     },
+    "id": {
+      "title": "id",
+      "description": "A unique, deterministic identifier for this application",
+      "$ref": "#/definitions/nonEmptyString"
+    },
     "about": {
       "title": "About",
       "description": "defines the context of \"What\" this application is",
       "type": "object",
       "properties": {
-        "id": {
-          "title": "id",
-          "description": "A unique, deterministic identifier for this application",
-          "$ref": "#/definitions/nonEmptyString"
-        },
         "title": {
           "title": "title",
           "description": "Unique title representing the application",
