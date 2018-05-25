@@ -34,6 +34,11 @@ npm install --production --save @colophon/schema
 const { schema, regex } = require('@colophon/schema')
 ```
 
+## Credits
+
+- Original Idea: [@crimeminister](https://github.com/crimeminister)
+- Name: [@kumar](https://twitter.com/kumar)
+
 ---
 
 > License: [ISC][license-url] • 
