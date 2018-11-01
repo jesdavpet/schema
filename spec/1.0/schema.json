@@ -57,8 +57,8 @@
     "version": {
       "title": "Colophon Schema Version",
       "description": "Used to determine what Colophon schema version to validate against",
-      "type": "string",
-      "pattern": "\\bv?(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-[\\da-z-]+(?:\\.[\\da-z-]+)*)?(?:\\+[\\da-z-]+(?:\\.[\\da-z-]+)*)?\\b"
+      "type": ["string", "number"],
+      "pattern": "\\b(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\b"
     },
     "id": {
       "title": "id",

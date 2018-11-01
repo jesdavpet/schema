@@ -1,6 +1,6 @@
 {
   "@schema": "../../spec/1.0.0/schema.json",
-  "version": "1.0.0",
+  "version": "1.0",
   "id": "my-awesome-app",
   "about": {
     "title": "Awesome App",

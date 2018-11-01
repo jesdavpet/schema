@@ -23,7 +23,7 @@ Acceptable file name must match the following pattern:
 
 ```json
 {
-  "version": "1.0.0",
+  "version": "1.0",
   "id": "my-awesome-app",
   "about": {},
   "contacts": {},
@@ -199,7 +199,7 @@ you add as many references as you want for your application:
 
 > ```json
 > {
->   "version": "1.0.0",
+>   "version": "1.0",
 >   "about": {
 >     "id": "awesome-2018",
 >     "title": "my-awesome-app",
@@ -258,7 +258,7 @@ you add as many references as you want for your application:
 ###### YAML Example
 
 > ```yaml
-> version: 1.0.0
+> version: 1.0
 > about:
 >   id: awesome-2018
 >   title: My Awesome App

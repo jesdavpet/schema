@@ -67,9 +67,9 @@ references:
 
 ### Versions
 
-| \#                     | status      |
-| ---------------------- | ----------- |
-| [`1.0.0`](spec/1.0.0/) | development |
+| \#                 | status      |
+| ------------------ | ----------- |
+| [`1.0`](spec/1.0/) | deprecated  |
 
 ## JSON Schema
 

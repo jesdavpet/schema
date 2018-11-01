@@ -4,7 +4,8 @@ const { safeLoad } = require('js-yaml')
 const { test } = require('tap')
 const Ajv = require('ajv')
 
-const { schema } = require('..')
+const schema = require('../../spec/1.0/schema.json')
+
 const json = require('./fixtures/colophon.json')
 const yaml = readFileSync(join(__dirname, 'fixtures', 'colophon.yml'), 'utf8')
 
@@ -20,11 +21,23 @@ test('schema compiles successfully', assert => {
 test('valid json file', assert => {
   assert.plan(1)
 
-  assert.ok(ajv.validate(schema, json))
+  const validate = ajv.compile(schema)
+  const valid = validate(json)
+
+  if (!valid) console.log(validate.errors)
+
+  assert.ok(valid)
 })
 
 test('valid yaml file', assert => {
   assert.plan(1)
 
-  assert.ok(ajv.validate(schema, safeLoad(yaml)))
+  const data = safeLoad(yaml)
+
+  const validate = ajv.compile(schema)
+  const valid = validate(data)
+
+  if (!valid) console.log(validate.errors)
+
+  assert.ok(valid)
 })
