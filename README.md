@@ -91,13 +91,13 @@ const { schema, regex } = require('@colophon/schema')
 ---
 
 > License: [ISC][license-url] • 
-> Copyright: [ahmadnassri.com](https://www.ahmadnassri.com) • 
-> Github: [@AhmadNassri](https://github.com/ahmadnassri) • 
-> Twitter: [@AhmadNassri](https://twitter.com/ahmadnassri)
+> Website: [colophon.id](https://colophon.id) • 
+> Github: [@Project-Colophon](https://github.com/project-colophon) • 
+> Twitter: [@ColophonID](https://twitter.com/ColophonID)
 
 [json schema]: http://json-schema.org
 
-[license-image]: https://img.shields.io/github/license/ahmadnassri/colophon.svg?style=flat-square
+[license-image]: https://img.shields.io/github/license/project-colophon/schema.svg?style=flat-square
 
 [license-url]: http://choosealicense.com/licenses/isc/
 
@@ -105,6 +105,6 @@ const { schema, regex } = require('@colophon/schema')
 
 [npm-version]: https://img.shields.io/npm/v/@colophon/schema.svg?style=flat-square
 
-[travis-image]: https://img.shields.io/travis/ahmadnassri/colophon.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/project-colophon/schema.svg?style=flat-square
 
-[travis-url]: https://travis-ci.org/ahmadnassri/colophon
+[travis-url]: https://travis-ci.org/project-colophon/schema
