@@ -35,13 +35,13 @@ Acceptable file name must match the following pattern:
 
 name             | type     | required | default | description                                            
 ---------------- | -------- | -------- | ------- | -------------------------------------------------------
-**version**      | `String` | 🗸       | `-`     | Spec version. Format must follow [semver][]            
-**id**           | `String` | ✗        | `-`     | A unique, deterministic identifier for your application
-**about**        | `Object` | 🗸       | `-`     | [About Object](#about)                                 
-**contacts**     | `Object` | 🗸       | `-`     | [Contacts Object](#contacts)                           
-**schedule**     | `Object` | ✗        | `-`     | [Schedule Object](#schedule)                           
-**environments** | `Array`  | 🗸       | `-`     | [Environments Array](#environments)                    
-**references**   | `Object` | ✗        | `-`     | [References Object](#references)                       
+**version**      | `String` | ✓       | `-`     | Spec version. Format must follow [semver][]            
+**id**           | `String` | ✗       | `-`     | A unique, deterministic identifier for your application
+**about**        | `Object` | ✓       | `-`     | [About Object](#about)                                 
+**contacts**     | `Object` | ✓       | `-`     | [Contacts Object](#contacts)                           
+**schedule**     | `Object` | ✗       | `-`     | [Schedule Object](#schedule)                           
+**environments** | `Array`  | ✓       | `-`     | [Environments Array](#environments)                    
+**references**   | `Object` | ✗       | `-`     | [References Object](#references)                       
 
 ### `about`
 
@@ -56,10 +56,10 @@ name             | type     | required | default | description
 
 name            | type     | required | default | description                                 
 --------------- | -------- | -------- | ------- | --------------------------------------------
-**title**       | `String` | 🗸       | `-`     | Unique title representing the application   
-**description** | `String` | ✗        | `-`     | Snippet describing the application in detail
+**title**       | `String` | ✓       | `-`     | Unique title representing the application   
+**description** | `String` | ✗       | `-`     | Snippet describing the application in detail
 
-### `contact`
+### `contacts`
 
 > defines the context of "Who" is responsible for this application
 
@@ -163,10 +163,9 @@ Each item under `environments` represents an "Environment Object", you can have 
 name            | type     | required | default | description                                                  
 --------------- | -------- | -------- | ------- | -------------------------------------------------------------
 **type**        | `String` | ✗        | `-`     | Environment Type _(freeform identifier, useful for grouping)_
-**title**       | `String` | 🗸       | `-`     | Environment Title                                            
-**description** | `String` | ✗        | `-`     | Description of this Environment                              
-**uri**         | `URI`    | 🗸       | `-`     | Environment URI                                              
-
+**title**       | `String` | ✓       | `-`     | Environment Title                                            
+**description** | `String` | ✗       | `-`     | Description of this Environment                              
+**uri**         | `URI`    | ✓       | `-`     | Environment URI                                              
 ### `references`
 
 > defines additional context about application through external sources
@@ -191,10 +190,9 @@ you add as many references as you want for your application:
 
 name            | type     | required | default | description                    
 --------------- | -------- | -------- | ------- | -------------------------------
-**title**       | `String` | 🗸       | `-`     | Environment Title              
-**description** | `String` | ✗        | `-`     | Description of this Environment
-**uri**         | `URI`    | 🗸       | `-`     | Environment URI                
-
+**title**       | `String` | ✓       | `-`     | Environment Title              
+**description** | `String` | ✗       | `-`     | Description of this Environment
+**uri**         | `URI`    | ✓       | `-`     | Environment URI                
 ###### JSON Example
 
 > ```json
