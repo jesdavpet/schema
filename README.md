@@ -1,4 +1,6 @@
-# Colophon [![version][npm-version]][npm-url] [![License][license-image]][license-url] [![Build Status][travis-image]][travis-url]
+# Colophon Schema
+
+[![License][license-image]][license-url] [![version][npm-image]][npm-url] [![Build Status][circle-image]][circle-url]
 
 > Standarized project metadata to specify the components, constructs and authorship of software.
 
@@ -65,9 +67,9 @@ references:
 
 ### Versions
 
-\#                     | status     
----------------------- | -----------
-[`1.0.0`](spec/1.0.0/) | development
+| \#                     | status      |
+| ---------------------- | ----------- |
+| [`1.0.0`](spec/1.0.0/) | development |
 
 ## JSON Schema
 
@@ -77,7 +79,13 @@ Available as an `npm` package for validation purposes, compatible with any [JSON
 npm install --production --save @colophon/schema
 ```
 
-## API
+## Install
+
+```bash
+npm install @colophon/schema
+```
+
+## Usage
 
 ```js
 const { schema, regex } = require('@colophon/schema')
@@ -89,22 +97,17 @@ const { schema, regex } = require('@colophon/schema')
 - Name: [@kumar](https://twitter.com/kumar)
 
 ---
-
-> License: [ISC][license-url] • 
-> Website: [colophon.id](https://colophon.id) • 
-> Github: [@Project-Colophon](https://github.com/project-colophon) • 
+> Author: [Ahmad Nassri](https://www.ahmadnassri.com) &bull; 
+> Github: [@project-colophon](https://github.com/project-colophon) &bull; 
 > Twitter: [@ColophonID](https://twitter.com/ColophonID)
 
-[json schema]: http://json-schema.org
+[license-url]: LICENSE
+[license-image]: https://img.shields.io/github/license/project-colophon/schema.svg?style=for-the-badge&logo=circleci
 
-[license-image]: https://img.shields.io/github/license/project-colophon/schema.svg?style=flat-square
-
-[license-url]: http://choosealicense.com/licenses/isc/
+[circle-url]: https://circleci.com/gh/project-colophon/schema
+[circle-image]: https://img.shields.io/circleci/project/github/project-colophon/schema/master.svg?style=for-the-badge&logo=circleci
 
 [npm-url]: https://www.npmjs.com/package/@colophon/schema
+[npm-image]: https://img.shields.io/npm/v/@colophon/schema.svg?style=for-the-badge&logo=npm
 
-[npm-version]: https://img.shields.io/npm/v/@colophon/schema.svg?style=flat-square
-
-[travis-image]: https://img.shields.io/travis/project-colophon/schema.svg?style=flat-square
-
-[travis-url]: https://travis-ci.org/project-colophon/schema
+[json schema]: http://json-schema.org

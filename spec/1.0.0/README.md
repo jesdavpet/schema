@@ -33,15 +33,15 @@ Acceptable file name must match the following pattern:
 }
 ```
 
-name             | type     | required | default | description                                            
----------------- | -------- | -------- | ------- | -------------------------------------------------------
-**version**      | `String` | ✓       | `-`     | Spec version. Format must follow [semver][]            
-**id**           | `String` | ✗       | `-`     | A unique, deterministic identifier for your application
-**about**        | `Object` | ✓       | `-`     | [About Object](#about)                                 
-**contacts**     | `Object` | ✓       | `-`     | [Contacts Object](#contacts)                           
-**schedule**     | `Object` | ✗       | `-`     | [Schedule Object](#schedule)                           
-**environments** | `Array`  | ✓       | `-`     | [Environments Array](#environments)                    
-**references**   | `Object` | ✗       | `-`     | [References Object](#references)                       
+| name             | type     | required | default | description                                             |
+| ---------------- | -------- | -------- | ------- | ------------------------------------------------------- |
+| **version**      | `String` | ✓        | `-`     | Spec version. Format must follow [semver][]             |
+| **id**           | `String` | ✗        | `-`     | A unique, deterministic identifier for your application |
+| **about**        | `Object` | ✓        | `-`     | [About Object](#about)                                  |
+| **contacts**     | `Object` | ✓        | `-`     | [Contacts Object](#contacts)                            |
+| **schedule**     | `Object` | ✗        | `-`     | [Schedule Object](#schedule)                            |
+| **environments** | `Array`  | ✓        | `-`     | [Environments Array](#environments)                     |
+| **references**   | `Object` | ✗        | `-`     | [References Object](#references)                        |
 
 ### `about`
 
@@ -54,10 +54,10 @@ name             | type     | required | default | description
 }
 ```
 
-name            | type     | required | default | description                                 
---------------- | -------- | -------- | ------- | --------------------------------------------
-**title**       | `String` | ✓       | `-`     | Unique title representing the application   
-**description** | `String` | ✗       | `-`     | Snippet describing the application in detail
+| name            | type     | required | default | description                                  |
+| --------------- | -------- | -------- | ------- | -------------------------------------------- |
+| **title**       | `String` | ✓        | `-`     | Unique title representing the application    |
+| **description** | `String` | ✗        | `-`     | Snippet describing the application in detail |
 
 ### `contacts`
 
@@ -71,11 +71,11 @@ name            | type     | required | default | description
 }
 ```
 
-name            | type               | required | default | description                              
---------------- | ------------------ | -------- | ------- | -----------------------------------------
-**humans**      | `Contact or Array` | ✗        | `-`     | human(s) this application belongs to     
-**teams**       | `Contact or Array` | ✗        | `-`     | team(s) this application belongs to      
-**departments** | `Contact or Array` | ✗        | `-`     | department(s) this application belongs to
+| name            | type               | required | default | description                               |
+| --------------- | ------------------ | -------- | ------- | ----------------------------------------- |
+| **humans**      | `Contact or Array` | ✗        | `-`     | human(s) this application belongs to      |
+| **teams**       | `Contact or Array` | ✗        | `-`     | team(s) this application belongs to       |
+| **departments** | `Contact or Array` | ✗        | `-`     | department(s) this application belongs to |
 
 **Note**: at least one property is required to be present.
 
@@ -122,11 +122,11 @@ All contact values must use one of the following formats:
 }
 ```
 
-name         | type        | required | default | description                                                                  
------------- | ----------- | -------- | ------- | -----------------------------------------------------------------------------
-**launch**   | `date-time` | ✗        | `-`     | Launch Date, with values defined in [`date-time`][rfc3339] format            
-**sunset**   | `date-time` | ✗        | `-`     | Sunset Date, with values defined in [`date-time`][rfc3339] format            
-**(custom)** | `date-time` | ✗        | `-`     | any date representation, with values defined in [`date-time`][rfc3339] format
+| name         | type        | required | default | description                                                                   |
+| ------------ | ----------- | -------- | ------- | ----------------------------------------------------------------------------- |
+| **launch**   | `date-time` | ✗        | `-`     | Launch Date, with values defined in [`date-time`][rfc3339] format             |
+| **sunset**   | `date-time` | ✗        | `-`     | Sunset Date, with values defined in [`date-time`][rfc3339] format             |
+| **(custom)** | `date-time` | ✗        | `-`     | any date representation, with values defined in [`date-time`][rfc3339] format |
 
 `date-time` format as defined in [RFC 3339, section 5.6][rfc3339]
 
@@ -160,12 +160,13 @@ name         | type        | required | default | description
 
 Each item under `environments` represents an "Environment Object", you can have as many as you want to describe your application environments:
 
-name            | type     | required | default | description                                                  
---------------- | -------- | -------- | ------- | -------------------------------------------------------------
-**type**        | `String` | ✗        | `-`     | Environment Type _(freeform identifier, useful for grouping)_
-**title**       | `String` | ✓       | `-`     | Environment Title                                            
-**description** | `String` | ✗       | `-`     | Description of this Environment                              
-**uri**         | `URI`    | ✓       | `-`     | Environment URI                                              
+| name            | type     | required | default | description                                                   |
+| --------------- | -------- | -------- | ------- | ------------------------------------------------------------- |
+| **type**        | `String` | ✗        | `-`     | Environment Type _(freeform identifier, useful for grouping)_ |
+| **title**       | `String` | ✓        | `-`     | Environment Title                                             |
+| **description** | `String` | ✗        | `-`     | Description of this Environment                               |
+| **uri**         | `URI`    | ✓        | `-`     | Environment URI                                               |
+
 ### `references`
 
 > defines additional context about application through external sources
@@ -188,11 +189,12 @@ name            | type     | required | default | description
 
 you add as many references as you want for your application:
 
-name            | type     | required | default | description                    
---------------- | -------- | -------- | ------- | -------------------------------
-**title**       | `String` | ✓       | `-`     | Environment Title              
-**description** | `String` | ✗       | `-`     | Description of this Environment
-**uri**         | `URI`    | ✓       | `-`     | Environment URI                
+| name            | type     | required | default | description                     |
+| --------------- | -------- | -------- | ------- | ------------------------------- |
+| **title**       | `String` | ✓        | `-`     | Environment Title               |
+| **description** | `String` | ✗        | `-`     | Description of this Environment |
+| **uri**         | `URI`    | ✓        | `-`     | Environment URI                 |
+
 ###### JSON Example
 
 > ```json

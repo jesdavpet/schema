@@ -3,21 +3,19 @@
   "name": "@colophon/schema",
   "description": "Standarized project metadata to specify the components, constructs and authorship of software",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
+  "homepage": "https://colophon.id",
   "repository": {
     "type": "git",
     "url": "https://github.com/project-colophon/schema.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "main": "index.js",
   "keywords": [
     "colophon",
     "schema"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "engines": {
-    "node": ">=9"
+    "node": ">=8"
   },
   "files": [
     "spec"
@@ -26,8 +24,15 @@
     "url": "https://github.com/project-colophon/schema/issues"
   },
   "scripts": {
-    "test": "npm run test:tap",
-    "test:tap": "tap test --100 --coverage-report=lcov --no-browser"
+    "lint:audit": "npm audit",
+    "lint:deps": "npx updated",
+    "lint:ec": "npx editorconfig-checker .",
+    "lint:js": "npx eslint .",
+    "lint:md": "npx remark --quiet --frail .",
+    "lint": "npx run-p lint:*",
+    "open:coverage": "opener coverage/lcov-report/index.html",
+    "test:tap": "tap test --100 --coverage-report=lcov --no-browser",
+    "test": "npx run-p test:*"
   },
   "devDependencies": {
     "ajv": "^6.4.0",
