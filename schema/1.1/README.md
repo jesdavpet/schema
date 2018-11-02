@@ -38,7 +38,7 @@ Acceptable file name must match the following pattern:
 | **version**      | `String` | ✓        | `-`     | Spec version. Format must follow [semver][]             |
 | **id**           | `String` | ✗        | `-`     | A unique, deterministic identifier for your application |
 | **about**        | `Object` | ✓        | `-`     | [About Object](#about)                                  |
-| **contacts**     | `Object` | ✓        | `-`     | [Contacts Object](#contacts)                            |
+| **contacts**     | `Array`  | ✓        | `-`     | [Contacts Array](#contacts)                             |
 | **schedule**     | `Object` | ✗        | `-`     | [Schedule Object](#schedule)                            |
 | **environments** | `Array`  | ✓        | `-`     | [Environments Array](#environments)                     |
 | **references**   | `Object` | ✗        | `-`     | [References Object](#references)                        |
@@ -64,51 +64,34 @@ Acceptable file name must match the following pattern:
 > defines the context of "Who" is responsible for this application
 
 ```json
-{
-  "humans": ["Lead Developer <ahmad@acme.com>", "Lead Designer <alex@acme.com>"],
-  "teams": ["dope jackalope <dopej@acme.com>"],
-  "departments": "digital office"
+[
+  {
+    "type": "Lead Developer",
+    "name": "Ahmad Nassri", 
+    "email": "<ahmad@acme.com"
+  },
+  {
+    "type": "Lead Designer",
+    "name": "Alex",
+    "email": "alex@acme.com"
+  },
+  {
+    "type": "Development Team",
+    "name": "dope jackalope",
+    "email": "dope@acme.com"
+  }
 }
 ```
 
-| name            | type               | required | default | description                               |
-| --------------- | ------------------ | -------- | ------- | ----------------------------------------- |
-| **humans**      | `Contact or Array` | ✗        | `-`     | human(s) this application belongs to      |
-| **teams**       | `Contact or Array` | ✗        | `-`     | team(s) this application belongs to       |
-| **departments** | `Contact or Array` | ✗        | `-`     | department(s) this application belongs to |
+Each item under `contacts` represents a "Contact Object", you can have as many as you want to describe your application contacts:
+
+| name      | type     | required | default | description                  |
+| --------- | -------- | -------- | ------- | ---------------------------- |
+| **type**  | `String` | ✗        | `-`     | type of contact              |
+| **name**  | `String` | ✓        | `-`     | name of contact              |
+| **email** | `String` | ✓        | `-`     | email identifier for contact |
 
 **Note**: at least one property is required to be present.
-
-All contact values must use one of the following formats:
-
-#### Object Format
-
-```json
-{
-  "humans": [
-    { "name": "Lead Developer", "email": "ahmad@acme.com" },
-    { "name": "Lead Designer", "email": "alex@acme.com>" }
-  ],
-  "teams": [
-    { "name": "dope jackalope", "email": "dope@acme.com" }
-  ],
-  "departments": [
-    { "name": "digital office" }
-  ]
-}
-```
-
-#### String Format
-
-> String that follows the [RFC 5322, section 3.4.1][rfc5322] format:
-
-```json
-{
-  "humans": ["Lead Developer <ahmad@acme.com>", "Lead Designer <alex@acme.com>"],
-  "teams": ["dope jackalope <dopej@acme.com>"],
-  "departments": "digital office <digital@acme.com>"
-}
-```
 
 ### `schedule`
 
@@ -205,17 +188,13 @@ you add as many references as you want for your application:
 >     "title": "my-awesome-app",
 >     "description": "app that makes everything awesome!"
 >   },
->   "contacts": {
->     "departments": "Awesome Department <awesome@acme.com>",
->     "teams": [
->       "app development <app-dev@acme.com>",
->       "app qa <app-qa@acme.com>"
->     ],
->     "humans": [
->       "Lead Developer <ahmad@acme.com>",
->       "Lead Designer <alex@acme.com>"
->     ]
->   },
+>   "contacts": [
+>     { "type": "department", "name": "Awesome Department", "email": "awesome@acme.com" },
+>     { "type": "developers", "name": "app development", "email": "app-dev@acme.com" },
+>     { "type": "qa", "name": "app qa", "email": "app-qa@acme.com" },
+>     { "type": "Lead Developer", "name": "Alex Smith", "email": "ahmad@acme.com" },
+>     { "type": "Lead Designer", "name": "John Smith", "email": "alex@acme.com" }
+>   ],
 >   "schedule": {
 >     "launch": "2018-05-24T03:35:40.968Z",
 >     "sunset": "2020-01-31T03:35:40.968Z"
@@ -265,14 +244,25 @@ you add as many references as you want for your application:
 >   description: app that makes everything awesome!
 >
 > contacts:
->   departments: Awesome Department <awesome@acme.com>
->   teams:
->     - app development <app-dev@acme.com>
->     - app qa <app-qa@acme.com>
->
->   humans:
->     - Lead Developer <ahmad@acme.com>
->     - Lead Designer <alex@acme.com>
+>   - type: department
+>     name: Awesome Department
+>     email: awesome@acme.com
+> 
+>   - type: developers
+>     name: app development
+>     email: app-dev@acme.com
+> 
+>   - type: qa
+>     name: app qa
+>     email: app-qa@acme.com
+> 
+>   - type: Lead Developer
+>     name: Alex Smith
+>     email: ahmad@acme.com
+> 
+>   - type: Lead Designer
+>     name: John Smith
+>     email: alex@acme.com
 >
 > schedule:
 >   launch: 2018-05-24T03:35:40.968Z
