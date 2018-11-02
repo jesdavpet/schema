@@ -5,7 +5,7 @@ executors:
     working_directory: ~/src
 
     docker:
-      - image: project-colophon/build-essential
+      - image: ahmadnassri/build-essential
 
 commands:
   persist:

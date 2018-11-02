@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Colophon Schema",
+  "description": "JSON Schema for Colophon",
+  "definitions": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "type": "object",
+  "required": [
+    "version",
+    "id",
+    "about",
+    "contacts",
+    "environments"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "title": "Colophon Schema Version",
+      "description": "Used to determine what Colophon schema version to validate against",
+      "type": ["string", "number"],
+      "pattern": "\\b(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\b"
+    },
+    "id": {
+      "title": "id",
+      "description": "A unique, deterministic identifier for this application",
+      "$ref": "#/definitions/nonEmptyString"
+    },
+    "about": {
+      "title": "About",
+      "description": "defines the context of \"What\" this application is",
+      "type": "object",
+      "required": [ "title" ],
+      "properties": {
+        "title": {
+          "title": "title",
+          "description": "Unique title representing the application",
+          "$ref": "#/definitions/nonEmptyString"
+        },
+        "description": {
+          "title": "description",
+          "description": "Snippet describing the application in detail",
+          "$ref": "#/definitions/nonEmptyString"
+        }
+      }
+    },
+    "contacts": {
+      "title": "Contacts",
+      "description": "defines the context of \"Who\" is responsible for this application",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "title": "Contact",
+        "description": "team or individual this application belongs to",
+        "required": [ "name", "email" ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "description": "Contact Type",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "name": {
+            "title": "name",
+            "description": "Contact Name",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "email": {
+            "title": "email",
+            "description": "Contact Email",
+            "format": "email"
+          }
+        }
+      }
+    },
+    "schedule": {
+      "title": "Schedule",
+      "description": "defines the context of \"When\" activities around this application are planned",
+      "type": "object",
+      "properties": {
+        "patternProperties": {
+          ".*": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "launch": {
+            "title": "Launch Date",
+            "description": "Launch date for this application",
+            "type": "string",
+            "format": "date-time"
+          },
+          "sunset": {
+            "title": "Sunset Date",
+            "description": "Sunset date for this application",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "environments": {
+      "title": "Environments",
+      "description": "defines the context of \"Where\" this application is",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "title": "Environment",
+        "description": "Environment Information",
+        "required": [ "title", "uri" ],
+        "properties": {
+          "type": {
+            "title": "type",
+            "description": "Environment Type",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "title": {
+            "title": "title",
+            "description": "Environment Title",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "description": {
+            "title": "description",
+            "description": "Environment Description",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "uri": {
+            "title": "URI",
+            "description": "Environment URI",
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "references": {
+      "title": "References",
+      "description": "defines additional context about application through external sources",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Reference",
+        "description": "Reference Information",
+        "properties": {
+          "title": {
+            "title": "title",
+            "description": "Reference Title",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "description": {
+            "title": "description",
+            "description": "Reference Description",
+            "$ref": "#/definitions/nonEmptyString"
+          },
+          "uri": {
+            "title": "URI",
+            "description": "Reference URI",
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
+  }
+}
