@@ -57,8 +57,7 @@
     "version": {
       "title": "Colophon Schema Version",
       "description": "Used to determine what Colophon schema version to validate against",
-      "type": ["string", "number"],
-      "pattern": "\\b(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\b"
+      "enum": ["1.0", 1.0]
     },
     "id": {
       "title": "id",
