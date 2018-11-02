@@ -1,20 +1,33 @@
 version: 2.1
 
 executors:
-  app:
-    working_directory: ~/src
-
+  builder:
     docker:
       - image: ahmadnassri/build-essential
+
+  node-6:
+    docker:
+      - image: node:6-slim
+
+  node-8:
+    docker:
+      - image: node:8-slim
+
+  node-10:
+    docker:
+      - image: node:10-slim
 
 commands:
   persist:
     steps:
-      - persist_to_workspace: { root: ~/src, paths: . }
+      - persist_to_workspace:
+          root: .
+          paths: .
 
   attach:
     steps:
-      - attach_workspace: { at: "." }
+      - attach_workspace:
+          at: .
 
   install:
     steps:
@@ -24,45 +37,63 @@ commands:
 
 jobs:
   build:
-    executor: app
+    executor: builder
     steps:
       - checkout
       - install
       - persist
 
   lint:
-    executor: app
+    executor: builder
     steps:
       - attach
       - run: npm run lint
 
-  unit:
-    executor: app
+  test-node-6:
+    executor: node-6
+    steps:
+      - attach
+      - run: npm run test
+
+  test-node-8:
+    executor: node-8
+    steps:
+      - attach
+      - run: npm run test
+
+  test-node-10:
+    executor: node-10
     steps:
       - attach
       - run: npm run test
 
   release:
-    executor: app
+    executor: builder
     steps:
       - attach
       - run: npx semantic-release
 
 workflows:
   version: 2
-  run:
+  main:
     jobs:
       - build
 
       - lint:
           requires: [ build ]
 
-      - unit:
+      - test-node-6:
+          requires: [ build ]
+
+      - test-node-8:
+          requires: [ build ]
+
+      - test-node-10:
           requires: [ build ]
 
       - release:
           context: semantic-release
-          requires: [ build, lint, unit ]
+          requires: [ build, lint, test-node-6, test-node-8, test-node-10 ]
           filters:
             branches:
               only: master
