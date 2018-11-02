@@ -80,7 +80,8 @@ Acceptable file name must match the following pattern:
     "name": "dope jackalope",
     "email": "dope@acme.com"
   }
-}
+  ...
+]
 ```
 
 Each item under `contacts` represents a "Contact Object", you can have as many as you want to describe your application contacts:
