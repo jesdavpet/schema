@@ -39,7 +39,7 @@ Allows teams to gain a better understanding of software, systems and human mappi
 This project's own [`colophon.yml`](.colophon.yml):
 
 ```yaml
-version: 1.0.0
+version: 1.1
 
 id: colophon-schema
 
@@ -48,7 +48,9 @@ about:
   description: Standarized project metadata to specify the components, constructs and authorship of software.
 
 contacts:
-  humans: Ahmad Nassri <hi@ahmad.codes>
+  - type: author
+    name: Ahmad Nassri 
+    email: hi@ahmad.codes
 
 schedule:
   launch: 2018-05-24T05:00:00.000Z
