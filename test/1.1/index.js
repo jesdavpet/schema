@@ -4,7 +4,8 @@ const { safeLoad } = require('js-yaml')
 const { test } = require('tap')
 const Ajv = require('ajv')
 
-const schema = require('../../spec/1.1/schema.json')
+const schema = require('../../schema/1.1/schema.json')
+
 const json = require('./fixtures/colophon.json')
 const yaml = readFileSync(join(__dirname, 'fixtures', 'colophon.yml'), 'utf8')
 

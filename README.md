@@ -69,7 +69,8 @@ references:
 
 | \#                 | status      |
 | ------------------ | ----------- |
-| [`1.0`](spec/1.0/) | deprecated  |
+| [`1.0`](schema/1.0/) | deprecated  |
+| [`1.1`](schema/1.1/) | stable      |
 
 ## JSON Schema
 

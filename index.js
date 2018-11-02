@@ -1,6 +1,6 @@
-const latest = '1.0'
+const latest = '1.1'
 
 module.exports = {
-  schema: require(`./spec/${latest}/schema.json`),
-  regex: require(`./spec/${latest}/regex`)
+  schema: require(`./schema/${latest}/schema.json`),
+  regex: require(`./schema/${latest}/regex`)
 }
