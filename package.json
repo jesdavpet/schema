@@ -18,7 +18,9 @@
     "node": ">=8"
   },
   "files": [
-    "spec"
+    "schema",
+    "index.js",
+    "versions.js"
   ],
   "bugs": {
     "url": "https://github.com/project-colophon/schema/issues"

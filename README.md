@@ -79,12 +79,6 @@ references:
 Available as an `npm` package for validation purposes, compatible with any [JSON Schema][] validation tool
 
 ```bash
-npm install --production --save @colophon/schema
-```
-
-## Install
-
-```bash
 npm install @colophon/schema
 ```
 
@@ -92,6 +86,14 @@ npm install @colophon/schema
 
 ```js
 const { schema, regex } = require('@colophon/schema')
+```
+
+### Referencing older versions
+
+```js
+const schemas = require('@colophon/schema/versions')
+
+const { schema, regex } = schemas['1.0']
 ```
 
 ## Credits
