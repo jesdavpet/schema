@@ -26,10 +26,10 @@ Acceptable file name must match the following pattern:
   "version": "1.1",
   "id": "my-awesome-app",
   "about": {},
-  "contacts": {},
+  "contacts": [],
   "schedule": {},
-  "references": {},
-  "environments": {}
+  "environments": [],
+  "references": []
 }
 ```
 
@@ -41,7 +41,7 @@ Acceptable file name must match the following pattern:
 | **contacts**     | `Array`  | ✓        | `-`     | [Contacts Array](#contacts)                             |
 | **schedule**     | `Object` | ✗        | `-`     | [Schedule Object](#schedule)                            |
 | **environments** | `Array`  | ✓        | `-`     | [Environments Array](#environments)                     |
-| **references**   | `Object` | ✗        | `-`     | [References Object](#references)                        |
+| **references**   | `Array`  | ✗        | `-`     | [References Object](#references)                        |
 
 ### `about`
 
