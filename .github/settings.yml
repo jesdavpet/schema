@@ -2,15 +2,7 @@ _extends: .github
 
 repository:
   name: schema
-  description: Standarized project metadata to specify the components, constructs and authorship of software
-  topics: colophon,schema
+  description: 📃 Standarized project metadata to specify the components, constructs and authorship of software
+  topics: colophon, schema
   homepage: https://colophon.id
-  private: false
   has_issues: true
-  has_wiki: false
-  has_downloads: false
-  has_projects: false
-  default_branch: master
-  allow_squash_merge: true
-  allow_merge_commit: false
-  allow_rebase_merge: true
