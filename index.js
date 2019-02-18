@@ -17,6 +17,7 @@ module.exports = function parser (data) {
     try {
       data = safeLoad(data)
     } catch (error) {
+      /* istanbul ignore next */
       return Promise.reject(error)
     }
   }
