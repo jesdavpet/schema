@@ -14,7 +14,11 @@ const validate = ajv.compile(schema)
 module.exports = function parser (data) {
   // attempt to read yaml
   if (typeof data === 'string') {
-    data = safeLoad(data)
+    try {
+      data = safeLoad(data)
+    } catch (error) {
+      return Promise.reject(error)
+    }
   }
 
   // validate
