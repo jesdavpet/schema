@@ -4,7 +4,8 @@ const { test } = require('tap')
 
 const available = [
   '1.0',
-  '1.1'
+  '1.1',
+  '2.0'
 ]
 
 test('exports all versions', assert => {

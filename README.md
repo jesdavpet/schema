@@ -2,81 +2,24 @@
 
 [![License][license-image]][license-url] [![version][npm-image]][npm-url] [![Build Status][circle-image]][circle-url]
 
-> Standarized project metadata to specify the components, constructs and authorship of software.
+> Schema & Validator for [Colophon][colophon-id]
 
-Allows teams to gain a better understanding of software, systems and human mappings (why, what, how, who, when, where) in an organization.
-
-## Use cases
-
-- A single source of truth for all non-technical data!
-- Catalogue all your software projects
-  - quickly scan through github repos for human readable and business driven information rather than code
-  - create reports on project health and ownership
-- Codify business & operational concerns that are typically undocumented
-  - timelines and scheduled operations around the project _(e.g. sunset date)_
-  - none technical references to the project _(e.g. kanban board, budget)_
-- Use in CI/CD tooling to anotate your artefacts
-- Correlation of application instances and source code:
-  - Web pages can expose a `<meta>` tag that links to the project's `id`:
-
-    ```html
-    <meta name="colophon" content="acme-app-id"/>
-    ```
-  - APIs respond with a header `Colophon` that links to the project's `id`:
-
-    ```http
-    HTTP/1.1 200 OK
-    Date: Fri, 25 May 2018 22:38:34 GMT
-    Content-Type: application/json; charset=UTF-8
-    Content-Encoding: UTF-8
-    Colophon: acme-app-api
-
-    ...
-    ```
-
-## Example
-
-This project's own [`colophon.yml`](.colophon.yml):
-
-```yaml
-version: 1.1
-
-id: colophon-schema
-
-about:
-  title: Colphon Schema
-  description: Standarized project metadata to specify the components, constructs and authorship of software.
-
-contacts:
-  - type: author
-    name: Ahmad Nassri 
-    email: hi@ahmad.codes
-
-schedule:
-  launch: 2018-05-24T05:00:00.000Z
-
-environments:
-  - type: git
-    title: Source Code
-    uri: https://github.com/ahmadnassri/colophon
-
-references:
-  - title: Documentation
-    uri: https://github.com/ahmadnassri/colophon
-```
-
-## Specification
+## Schema Specification
 
 ### Versions
 
-| \#                   | status      |
-| -------------------- | ----------- |
-| [`1.0`](schema/1.0/) | deprecated  |
-| [`1.1`](schema/1.1/) | stable      |
+| \#                   | status        |
+| -------------------- | ------------- |
+| [`2.0`](schema/2.0/) | **stable**    |
+|                      |               |
+| [`1.1`](schema/1.1/) | _deprecated_  |
+| [`1.0`](schema/1.0/) | _deprecated_  |
 
-## JSON Schema
+> _see an example of this repo's own [`.colophon.yml`](./.colophon.yml)..._
 
-Available as an `npm` package for validation purposes, compatible with any [JSON Schema][] validation tool
+## Install
+
+Available as an `npm` package for validation purposes, exposes validation helper, and the schema itself _(compatible with any [JSON Schema][] validation tool)_
 
 ```bash
 npm install @colophon/schema
@@ -85,7 +28,8 @@ npm install @colophon/schema
 ## Usage
 
 ```js
-const { schema, regex } = require('@colophon/schema')
+const parser = require('@colophon/schema')
+const { schema, regex } = require('@colophon/schema/versions/latest')
 ```
 
 ### Referencing older versions
@@ -96,10 +40,51 @@ const schemas = require('@colophon/schema/versions')
 const { schema, regex } = schemas['1.0']
 ```
 
+## API
+
+### _`parser(colophon: String | Object): Promise<Object>`_
+> 
+> Resolves with `content` as a valid JavaScript Colophon Object
+> Rejects with [`ColophonError`](./error.js) on invalid schema test
+
+
+###### Example: Valid Colophon
+
+```js
+const parser = require('@colophon/schema')
+
+const valid = { ... } // supply an Object or YAML String
+
+const colophon = await parser(valid)
+// colophon is a JavaScript Object (parsed from YAML string, or returned as is)
+```
+
+###### Example: Invalid Colophon
+
+```js
+const parser = require('@colophon/schema')
+
+// invalid
+const invalid = `
+version: 2.0
+
+id: my-app
+`
+
+parser(invalid)
+  .then(colophon)
+  .catch(err => console.error(err.message, err.errors))
+    // invalid colophon content
+    // "err.errors" object contains schema errors
+    // e.g. "err.errors": [ { message: "should have required property 'contacts'" } ]
+    // see https://github.com/epoberezkin/ajv#validation-errors for details
+}
+```
+
 ## Credits
 
-- Original Idea: [@crimeminister](https://github.com/crimeminister)
-- Name: [@kumar](https://twitter.com/kumar)
+- Original Idea: _[@crimeminister](https://github.com/crimeminister)_
+- Name: _[@andrewkumar](https://github.com/andrewkumar)_
 
 ---
 > Author: [Ahmad Nassri](https://www.ahmadnassri.com) &bull; 
@@ -116,3 +101,4 @@ const { schema, regex } = schemas['1.0']
 [npm-image]: https://img.shields.io/npm/v/@colophon/schema.svg?style=for-the-badge&logo=npm
 
 [json schema]: http://json-schema.org
+[colophon-id]: https://colophon.id

@@ -1,15 +1,15 @@
-version: 1.1
+version: 2.0
 
 id: colophon-schema
 
 about:
   title: Colphon Schema
-  description: Standarized project metadata to specify the components, constructs and authorship of software.
+  description: Schema for Colophon
 
 contacts:
   - type: author
     name: Ahmad Nassri
-    email: hi@ahmad.codes
+    email: ahmad@codeinchaos.com
 
 schedule:
   launch: 2018-05-24T05:00:00.000Z

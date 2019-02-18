@@ -24,8 +24,6 @@ test('valid json file', assert => {
   const validate = ajv.compile(schema)
   const valid = validate(json)
 
-  if (!valid) console.log(validate.errors)
-
   assert.ok(valid)
 })
 
@@ -36,8 +34,6 @@ test('valid yaml file', assert => {
 
   const validate = ajv.compile(schema)
   const valid = validate(data)
-
-  if (!valid) console.log(validate.errors)
 
   assert.ok(valid)
 })

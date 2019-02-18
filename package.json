@@ -1,7 +1,7 @@
 {
   "version": "1.2.3",
   "name": "@colophon/schema",
-  "description": "Standarized project metadata to specify the components, constructs and authorship of software",
+  "description": "Schema & Validator for https://colophon.id",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
   "homepage": "https://colophon.id",
   "repository": {
@@ -19,6 +19,7 @@
   },
   "files": [
     "schema",
+    "error.js",
     "index.js",
     "versions.js"
   ],
@@ -35,9 +36,11 @@
     "open:coverage": "opener coverage/lcov-report/index.html",
     "test": "tap test --100 --coverage-report=lcov --no-browser"
   },
-  "devDependencies": {
+  "dependencies": {
     "ajv": "^6.9.1",
-    "js-yaml": "^3.12.1",
+    "js-yaml": "^3.12.1"
+  },
+  "devDependencies": {
     "tap": "^12.5.3"
   }
 }
