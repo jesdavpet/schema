@@ -43,10 +43,9 @@ const { schema, regex } = schemas['1.0']
 ## API
 
 ### _`parser(colophon: String | Object): Promise<Object>`_
-> 
+
 > Resolves with `content` as a valid JavaScript Colophon Object
 > Rejects with [`ColophonError`](./error.js) on invalid schema test
-
 
 ###### Example: Valid Colophon
 
