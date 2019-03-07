@@ -159,7 +159,7 @@ you add as many references as you want for your application:
 ###### Full Example
 
 > ```yaml
-> version: 1.1
+> version: 2.0
 > about:
 >   id: awesome-2018
 >   title: My Awesome App
